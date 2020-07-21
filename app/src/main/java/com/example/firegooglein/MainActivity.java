@@ -24,7 +24,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.auth.dataBinding.ActivityMainBinding; //Unresolved
+//import com.google.firebase.quickstart.auth.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     SignInButton button;
@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private final static int RC_SIGN_IN = 2;
 
     GoogleSignInClient mGoogleSignInClient;
-    private ActivityMainBinding mBinding;
+   private ActivityMainBinding mBinding;
+
 
     FirebaseAuth.AuthStateListener mAuthListener;
 
@@ -47,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        mBinding = ActivityMainBinding.inflate(getLayoutInflater());
+
+
 
         //mBinding = ActivityMainBinding.inflate(getLayoutInflater());
 
@@ -75,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
+               
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
